@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import Header from '../components/Header';
 
 function TodoList() {
   const [todo, setTodo] = useState([
@@ -16,13 +17,17 @@ function TodoList() {
       isDone: true,
     },
   ]);
-  return <Layout>TodoList</Layout>;
+  return (
+    <Layout>
+      <Header />
+    </Layout>
+  );
 }
 
 const Layout = styled.div`
   min-width: 800px;
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
 `;
 
 export default TodoList;
