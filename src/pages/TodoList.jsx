@@ -1,0 +1,21 @@
+import React, { useState } from 'react';
+
+function TodoList() {
+  const [todo, setTodo] = useState([
+    {
+      id: 1,
+      title: '리액트 공부하기',
+      body: '리액트 기초를 공부하자',
+      isDone: false,
+    },
+    {
+      id: 2,
+      title: '리액트 공부하기',
+      body: '리액트 기초를 공부하자',
+      isDone: true,
+    },
+  ]);
+  return <div>TodoList</div>;
+}
+
+export default TodoList;
