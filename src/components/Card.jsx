@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function Card({ todos }) {
+function Card({ el }) {
   return (
-    <TodoCard>
-      <h2>{todos[0].title}</h2>
-      <p>{todos[0].body}</p>
+    <TodoCard key={el.id}>
+      <h2>{el.title}</h2>
+      <p>{el.body}</p>
       <ButtonGrop>
         <button>삭제</button>
         <button>완료</button>
