@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Header from '../components/Header';
 import Form from '../components/Form';
+import List from '../components/List';
 
 function TodoList() {
-  const [todo, setTodo] = useState([
+  const [todos, setTodos] = useState([
     {
       id: 1,
       title: '리액트 공부하기',
@@ -22,6 +23,7 @@ function TodoList() {
     <Layout>
       <Header />
       <Form />
+      <List todos={todos} />
     </Layout>
   );
 }
