@@ -12,11 +12,17 @@ function TodoList() {
       body: '리액트 기초를 공부하자',
       isDone: false,
     },
+    {
+      id: 2,
+      title: '리덕스 공부하기',
+      body: '리덕스 기초를 공부하자',
+      isDone: true,
+    },
   ]);
   return (
     <Layout>
       <Header />
-      <Form />
+      <Form todos={todos} setTodos={setTodos} />
       <List todos={todos} />
     </Layout>
   );
