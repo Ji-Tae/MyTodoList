@@ -1,17 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
-function Form() {
+function Form({ todos, setTodos }) {
+  const initialState = {
+    id: 0,
+    title: '',
+    body: '',
+    isDone: false,
+  };
+  const [todo, setTodo] = useState(initialState);
+  const onChangeHendler = (e) => {
+    const { name, value } = e.target;
+    setTodo({ ...todo, [name]: value });
+  };
+  const addCardHendler = () => {
+    const newTodo = {
+      id: todos.length + 1,
+      title: todo.title,
+      body: todo.body,
+      isDone: false,
+    };
+    setTodos([...todos, newTodo]);
+  };
   return (
     <Container>
       <InputGrop>
         <label>제목</label>
-        <input placeholder="제목을 입력하세요" type="text" />
+        <input
+          name="title"
+          defaultValue={todo.title}
+          onChange={onChangeHendler}
+          placeholder="제목을 입력하세요"
+          type="text"
+        />
         <label>내용</label>
-        <input placeholder="내용을 일력하세요" type="text" />
+        <input
+          name="body"
+          defaultValue={todo.body}
+          onChange={onChangeHendler}
+          placeholder="내용을 일력하세요"
+          type="text"
+        />
       </InputGrop>
 
-      <button>추가하기</button>
+      <button onClick={addCardHendler}>추가하기</button>
     </Container>
   );
 }
