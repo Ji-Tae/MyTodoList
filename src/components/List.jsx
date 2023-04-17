@@ -6,11 +6,15 @@ function List({ todos }) {
     <div>
       <div>
         <h2>What to do</h2>
-        <Card todos={todos} />
+        {todos.map((el) => {
+          return <Card el={el} key={el.id} />;
+        })}
       </div>
       <div>
         <h2>isDone</h2>
-        <Card todos={todos} />
+        {todos.map((el) => {
+          return <Card el={el} key={el.id} />;
+        })}
       </div>
     </div>
   );
