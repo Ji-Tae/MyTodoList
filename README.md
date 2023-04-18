@@ -2,7 +2,9 @@
 
 ## 실행 결과
 
-[![MyTodoList](https://i9.ytimg.com/vi_webp/oQctIYLWWPA/mq1.webp?sqp=CMiE-aEG-oaymwEmCMACELQB8quKqQMa8AEB-AH-CYACsAWKAgwIABABGGUgZShlMA8=&rs=AOn4CLDccJ2-HP0ZXtlZgv6RJhA1pLIgyw)](https://youtu.be/oQctIYLWWPA)
+<video style="max-width:100%;" controls>
+  <source src="https://youtu.be/oQctIYLWWPA" type="video/mp4">
+</video>
 
 ## 컴포넌트 분리기준
 
