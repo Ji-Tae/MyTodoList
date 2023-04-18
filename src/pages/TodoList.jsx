@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import Header from '../components/Header';
+import Form from '../components/Form';
+import List from '../components/List';
 
 function TodoList() {
-  const [todo, setTodo] = useState([
+  const [todos, setTodos] = useState([
     {
       id: 1,
       title: '리액트 공부하기',
@@ -11,18 +14,24 @@ function TodoList() {
     },
     {
       id: 2,
-      title: '리액트 공부하기',
-      body: '리액트 기초를 공부하자',
+      title: '리덕스 공부하기',
+      body: '리덕스 기초를 공부하자',
       isDone: true,
     },
   ]);
-  return <Layout>TodoList</Layout>;
+  return (
+    <Layout>
+      <Header />
+      <Form todos={todos} setTodos={setTodos} />
+      <List todos={todos} />
+    </Layout>
+  );
 }
 
 const Layout = styled.div`
   min-width: 800px;
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
 `;
 
 export default TodoList;
