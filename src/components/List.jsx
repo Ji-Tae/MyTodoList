@@ -7,13 +7,16 @@ function List({ todos }) {
       <div>
         <h2>What to do</h2>
         {todos.map((el) => {
-          return <Card el={el} key={el.id} />;
+          if (el.isDone === false) {
+            return <Card el={el} key={el.id} todos={todos} />;
+          }
         })}
       </div>
       <div>
         <h2>isDone</h2>
         {todos.map((el) => {
-          return <Card el={el} key={el.id} />;
+          if (el.isDone === true)
+            return <Card el={el} key={el.id} todos={todos} />;
         })}
       </div>
     </div>
