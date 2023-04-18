@@ -4,6 +4,7 @@
 
 <video style="max-width:100%;" controls>
   <source src="https://youtu.be/oQctIYLWWPA" type="video/mp4">
+  동영상을 지원하지 않는 브라우저입니다.
 </video>
 
 ## 컴포넌트 분리기준
