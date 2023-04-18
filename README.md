@@ -2,7 +2,7 @@
 
 ## 실행 결과
 
-<iframe width="560" height="315" src="https://youtu.be/oQctIYLWWPA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+![시연영상](https://youtu.be/oQctIYLWWPA)
 
 ## 컴포넌트 분리기준
 
