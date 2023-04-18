@@ -2,9 +2,7 @@
 
 ## 실행 결과
 
-<video style="max-width:100%;" controls>
-  <source src="https://youtu.be/oQctIYLWWPA" type="video/mp4">
-</video>
+<iframe width="560" height="315" src="https://youtu.be/oQctIYLWWPA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 ## 컴포넌트 분리기준
 
