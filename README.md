@@ -2,7 +2,7 @@
 
 ## 실행 결과
 
-[MyTodoList](https://youtu.be/oQctIYLWWPA)
+[!MyTodoList](https://youtu.be/oQctIYLWWPA)
 
 ## 컴포넌트 분리기준
 
