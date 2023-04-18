@@ -1,14 +1,32 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function Card({ el }) {
+function Card({ todos, el, setTodos }) {
+  const deleteButton = (todoId) => {
+    const newTodos = todos.filter((el) => {
+      return todoId !== el.id;
+    });
+    setTodos(newTodos);
+  };
+  const ChangeIsDone = (todoId) => {
+    const newTodos = todos.map((el) => {
+      if (el.id === todoId) {
+        return { ...el, isDone: !el.isDone };
+      } else {
+        return el;
+      }
+    });
+    setTodos(newTodos);
+  };
   return (
     <TodoCard key={el.id}>
       <h2>{el.title}</h2>
       <p>{el.body}</p>
       <ButtonGrop>
-        <button>삭제!</button>
-        <button>완료</button>
+        <button onClick={() => deleteButton(el.id)}>삭제</button>
+        <button onClick={() => ChangeIsDone(el.id)}>
+          {!el.isDone ? '완료' : '취소'}
+        </button>
       </ButtonGrop>
     </TodoCard>
   );

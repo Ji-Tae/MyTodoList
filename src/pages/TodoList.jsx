@@ -14,16 +14,17 @@ function TodoList() {
     },
     {
       id: 2,
-      title: '리덕스 공부하기',
-      body: '리덕스 기초를 공부하자',
+      title: '리액트 공부하기',
+      body: '리액트 기초를 공부하자',
       isDone: true,
     },
   ]);
+
   return (
     <Layout>
       <Header />
       <Form todos={todos} setTodos={setTodos} />
-      <List todos={todos} />
+      <List todos={todos} setTodos={setTodos} />
     </Layout>
   );
 }
@@ -31,7 +32,7 @@ function TodoList() {
 const Layout = styled.div`
   min-width: 800px;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: auto;
 `;
 
 export default TodoList;

@@ -8,6 +8,7 @@ function Form({ todos, setTodos }) {
     body: '',
     isDone: false,
   };
+
   const [todo, setTodo] = useState(initialState);
   const onChangeHendler = (e) => {
     const { name, value } = e.target;
@@ -38,7 +39,7 @@ function Form({ todos, setTodos }) {
           name="body"
           defaultValue={todo.body}
           onChange={onChangeHendler}
-          placeholder="내용을 일력하세요"
+          placeholder="내용을 입력하세요"
           type="text"
         />
       </InputGrop>
