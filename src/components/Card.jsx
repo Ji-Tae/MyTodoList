@@ -7,7 +7,7 @@ function Card({ el }) {
       <h2>{el.title}</h2>
       <p>{el.body}</p>
       <ButtonGrop>
-        <button>삭제</button>
+        <button>삭제!</button>
         <button>완료</button>
       </ButtonGrop>
     </TodoCard>
