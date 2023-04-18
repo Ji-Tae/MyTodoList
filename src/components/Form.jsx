@@ -21,7 +21,9 @@ function Form({ todos, setTodos }) {
       body: todo.body,
       isDone: false,
     };
+    if(todo.title.trim() === '' || todo.body.trim() === '')return;
     setTodos([...todos, newTodo]);
+    setTodo('');
   };
   return (
     <Container>
@@ -29,7 +31,7 @@ function Form({ todos, setTodos }) {
         <label>제목</label>
         <input
           name="title"
-          defaultValue={todo.title}
+          value={todo.title}
           onChange={onChangeHendler}
           placeholder="제목을 입력하세요"
           type="text"
@@ -37,7 +39,7 @@ function Form({ todos, setTodos }) {
         <label>내용</label>
         <input
           name="body"
-          defaultValue={todo.body}
+          value={todo.body}
           onChange={onChangeHendler}
           placeholder="내용을 입력하세요"
           type="text"
