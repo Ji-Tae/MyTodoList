@@ -2,9 +2,7 @@
 
 ## 실행 결과
 
-<video style="max-width:100%;" controls>
-  <source src="https://youtu.be/oQctIYLWWPA" type="video/mp4">
-</video>
+![TodoList](https://user-images.githubusercontent.com/117277785/232707403-3721131f-4361-42b1-8ae8-9e1b50677abc.gif)
 
 ## 컴포넌트 분리기준
 

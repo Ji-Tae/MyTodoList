@@ -23,7 +23,7 @@ function Form({ todos, setTodos }) {
     };
     if(todo.title.trim() === '' || todo.body.trim() === '')return;
     setTodos([...todos, newTodo]);
-    setTodo('');
+    setTodo(initialState);
   };
   return (
     <Container>
