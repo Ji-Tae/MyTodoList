@@ -3,17 +3,17 @@ import styled from 'styled-components';
 
 function Card({ todos, el, setTodos }) {
   const deleteButton = (todoId) => {
-    const newTodos = todos.filter((el) => {
-      return todoId !== el.id;
+    const newTodos = todos.filter((deleteItem) => {
+      return todoId !== deleteItem.id;
     });
     setTodos(newTodos);
   };
   const ChangeIsDone = (todoId) => {
-    const newTodos = todos.map((el) => {
-      if (el.id === todoId) {
-        return { ...el, isDone: !el.isDone };
+    const newTodos = todos.map((changeItem) => {
+      if (changeItem.id === todoId) {
+        return { ...changeItem, isDone: !changeItem.isDone };
       } else {
-        return el;
+        return changeItem;
       }
     });
     setTodos(newTodos);
@@ -24,9 +24,7 @@ function Card({ todos, el, setTodos }) {
       <p>{el.body}</p>
       <ButtonGrop>
         <button onClick={() => deleteButton(el.id)}>삭제</button>
-        <button onClick={() => ChangeIsDone(el.id)}>
-          {!el.isDone ? '완료' : '취소'}
-        </button>
+        <button onClick={() => ChangeIsDone(el.id)}>{!el.isDone ? '완료' : '취소'}</button>
       </ButtonGrop>
     </TodoCard>
   );
