@@ -17,15 +17,17 @@ function Form({ todos, setTodos }) {
   };
   const addCardHendler = () => {
     const newTodo = {
-      id: todos.length + 1,
+      id: todos[todos.length - 1].id + 1,
       title: todo.title,
       body: todo.body,
       isDone: false,
     };
     if (todo.title.trim() === '' || todo.body.trim() === '') return;
     setTodos([...todos, newTodo]);
+
     setTodo(initialState);
   };
+  console.log(todos);
   return (
     <>
       <Container>
