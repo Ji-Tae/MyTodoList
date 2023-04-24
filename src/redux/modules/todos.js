@@ -2,32 +2,27 @@
 const ADD_TODO = 'todos/ADD_TODO';
 const DELETE_TODO = 'todos/DELETE_TODO';
 const TOGGLE_STATUS_TODO = 'todos/TOGGLE_STATUS_TODO';
-const GET_TODO_BY_ID = 'todos/GET_TODO_BY_ID';
+
 // action creator
-export const addTodo = (paylode) => {
+export const addTodo = (payload) => {
   return {
     type: ADD_TODO,
-    paylode,
+    payload,
   };
 };
-export const deleteTodo = (paylode) => {
+export const deleteTodo = (payload) => {
   return {
     type: DELETE_TODO,
-    paylode,
+    payload,
   };
 };
-export const toggleStatusTodo = (paylode) => {
+export const toggleStatusTodo = (payload) => {
   return {
     type: TOGGLE_STATUS_TODO,
-    paylode,
+    payload,
   };
 };
-export const getTodoById = (paylode) => {
-  return {
-    type: GET_TODO_BY_ID,
-    paylode,
-  };
-};
+
 //initialState
 const initialState = {
   todos: [
@@ -51,18 +46,18 @@ const todos = (state = initialState, action) => {
     case ADD_TODO:
       return {
         ...state,
-        todos: [...state.todos, action.paylode],
+        todos: [...state.todos, action.payload],
       };
     case DELETE_TODO:
       return {
         ...state,
-        todos: state.todos.filter((card) => card.id !== action.paylode),
+        todos: state.todos.filter((card) => card.id !== action.payload),
       };
     case TOGGLE_STATUS_TODO:
       return {
         ...state,
         todos: state.todos.map((card) => {
-          if (card.id === action.paylode) {
+          if (card.id === action.payload) {
             return {
               ...card,
               isDone: !card.isDone,
