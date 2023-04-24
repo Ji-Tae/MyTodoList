@@ -4,20 +4,7 @@ import Header from '../components/Header';
 import Form from '../components/Form';
 
 function TodoList() {
-  const [todos, setTodos] = useState([
-    {
-      id: 1,
-      title: '리액트 공부하기',
-      body: '리액트 기초를 공부하자',
-      isDone: false,
-    },
-    {
-      id: 2,
-      title: '리액트 공부하기',
-      body: '리액트 기초를 공부하자',
-      isDone: true,
-    },
-  ]);
+  const [todos, setTodos] = useState([]);
 
   return (
     <Layout>

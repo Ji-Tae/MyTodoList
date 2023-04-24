@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Card from './Card';
+import { useDispatch, useSelector } from 'react-redux';
+import { addTodo } from '../redux/modules/todos';
 
-function Form({ todos, setTodos }) {
+function Form({ setTodos }) {
+  const todos = useSelector((state) => state.todos.todos);
+  const dispatch = useDispatch();
   const initialState = {
     id: 0,
     title: '',
@@ -23,7 +27,7 @@ function Form({ todos, setTodos }) {
       isDone: false,
     };
     if (todo.title.trim() === '' || todo.body.trim() === '') return;
-    setTodos([...todos, newTodo]);
+    dispatch(addTodo(newTodo));
 
     setTodo(initialState);
   };

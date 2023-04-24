@@ -1,7 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
 
-function Card({ todos, el, setTodos }) {
+function Card({ el, setTodos }) {
+  const todos = useSelector((state) => state.todos.todos);
   const deleteButton = (todoId) => {
     const newTodos = todos.filter((deleteItem) => {
       return todoId !== deleteItem.id;
@@ -20,6 +23,7 @@ function Card({ todos, el, setTodos }) {
   };
   return (
     <TodoCard key={el.id}>
+      <Link to={`/detail/${el.id}`}>상세페이지</Link>
       <h2>{el.title}</h2>
       <p>{el.body}</p>
       <ButtonGrop>
