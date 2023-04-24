@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Card from './Card';
 import { useDispatch, useSelector } from 'react-redux';
 import { addTodo } from '../redux/modules/todos';
+import nextId from 'react-id-generator';
 
 function Form({ setTodos }) {
   const todos = useSelector((state) => state.todos.todos);
@@ -21,7 +22,7 @@ function Form({ setTodos }) {
   };
   const addCardHendler = () => {
     const newTodo = {
-      id: todos[todos.length - 1].id + 1,
+      id: nextId(),
       title: todo.title,
       body: todo.body,
       isDone: false,
@@ -31,7 +32,6 @@ function Form({ setTodos }) {
 
     setTodo(initialState);
   };
-  console.log(todos);
   return (
     <>
       <Container>
@@ -55,7 +55,7 @@ function Form({ setTodos }) {
           <h2>What to do</h2>
           {todos.map((el) => {
             if (!el.isDone) {
-              return <Card el={el} key={el.id} todos={todos} setTodos={setTodos} />;
+              return <Card el={el} key={el.id} />;
             } else {
               return null;
             }
@@ -65,7 +65,7 @@ function Form({ setTodos }) {
           <h2>isDone</h2>
           {todos.map((el) => {
             if (el.isDone) {
-              return <Card el={el} key={el.id} todos={todos} setTodos={setTodos} />;
+              return <Card el={el} key={el.id} />;
             } else {
               return null;
             }

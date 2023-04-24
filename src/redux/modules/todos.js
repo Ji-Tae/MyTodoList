@@ -32,13 +32,13 @@ export const getTodoById = (paylode) => {
 const initialState = {
   todos: [
     {
-      id: 1,
+      id: '1',
       title: '리액트 공부하기',
       body: '리액트 기초를 공부하자',
       isDone: false,
     },
     {
-      id: 2,
+      id: '2',
       title: '리액트 공부하기',
       body: '리액트 기초를 공부하자',
       isDone: true,
@@ -53,6 +53,26 @@ const todos = (state = initialState, action) => {
         ...state,
         todos: [...state.todos, action.paylode],
       };
+    case DELETE_TODO:
+      return {
+        ...state,
+        todos: state.todos.filter((card) => card.id !== action.paylode),
+      };
+    case TOGGLE_STATUS_TODO:
+      return {
+        ...state,
+        todos: state.todos.map((card) => {
+          if (card.id === action.paylode) {
+            return {
+              ...card,
+              isDone: !card.isDone,
+            };
+          } else {
+            return card;
+          }
+        }),
+      };
+
     default:
       return state;
   }

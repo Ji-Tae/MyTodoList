@@ -1,25 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { deleteTodo, toggleStatusTodo } from '../redux/modules/todos';
 
-function Card({ el, setTodos }) {
-  const todos = useSelector((state) => state.todos.todos);
+function Card({ el }) {
+  const dispatch = useDispatch();
   const deleteButton = (todoId) => {
-    const newTodos = todos.filter((deleteItem) => {
-      return todoId !== deleteItem.id;
-    });
-    setTodos(newTodos);
+    dispatch(deleteTodo(todoId));
   };
   const ChangeIsDone = (todoId) => {
-    const newTodos = todos.map((changeItem) => {
-      if (changeItem.id === todoId) {
-        return { ...changeItem, isDone: !changeItem.isDone };
-      } else {
-        return changeItem;
-      }
-    });
-    setTodos(newTodos);
+    dispatch(toggleStatusTodo(todoId));
   };
   return (
     <TodoCard key={el.id}>
