@@ -1,32 +1,25 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
+import { deleteTodo, toggleStatusTodo } from '../redux/modules/todos';
 
-function Card({ todos, el, setTodos }) {
+function Card({ el }) {
+  const dispatch = useDispatch();
   const deleteButton = (todoId) => {
-    const newTodos = todos.filter((el) => {
-      return todoId !== el.id;
-    });
-    setTodos(newTodos);
+    dispatch(deleteTodo(todoId));
   };
   const ChangeIsDone = (todoId) => {
-    const newTodos = todos.map((el) => {
-      if (el.id === todoId) {
-        return { ...el, isDone: !el.isDone };
-      } else {
-        return el;
-      }
-    });
-    setTodos(newTodos);
+    dispatch(toggleStatusTodo(todoId));
   };
   return (
     <TodoCard key={el.id}>
+      <Link to={`/detail/${el.id}`}>상세페이지</Link>
       <h2>{el.title}</h2>
       <p>{el.body}</p>
       <ButtonGrop>
         <button onClick={() => deleteButton(el.id)}>삭제</button>
-        <button onClick={() => ChangeIsDone(el.id)}>
-          {!el.isDone ? '완료' : '취소'}
-        </button>
+        <button onClick={() => ChangeIsDone(el.id)}>{!el.isDone ? '완료' : '취소'}</button>
       </ButtonGrop>
     </TodoCard>
   );

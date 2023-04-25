@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import Card from './Card';
+import { useDispatch, useSelector } from 'react-redux';
+import { addTodo } from '../redux/modules/todos';
+import nextId from 'react-id-generator';
 
-function Form({ todos, setTodos }) {
+function Form({ setTodos }) {
+  const todos = useSelector((state) => state.todos.todos);
+  const dispatch = useDispatch();
   const initialState = {
     id: 0,
     title: '',
@@ -16,38 +22,57 @@ function Form({ todos, setTodos }) {
   };
   const addCardHendler = () => {
     const newTodo = {
-      id: todos.length + 1,
+      id: nextId(),
       title: todo.title,
       body: todo.body,
       isDone: false,
     };
-    if(todo.title.trim() === '' || todo.body.trim() === '')return;
-    setTodos([...todos, newTodo]);
+    if (todo.title.trim() === '' || todo.body.trim() === '') return;
+    dispatch(addTodo(newTodo));
+
     setTodo(initialState);
   };
   return (
-    <Container>
-      <InputGrop>
-        <label>제목</label>
-        <input
-          name="title"
-          value={todo.title}
-          onChange={onChangeHendler}
-          placeholder="제목을 입력하세요"
-          type="text"
-        />
-        <label>내용</label>
-        <input
-          name="body"
-          value={todo.body}
-          onChange={onChangeHendler}
-          placeholder="내용을 입력하세요"
-          type="text"
-        />
-      </InputGrop>
+    <>
+      <Container>
+        <InputGrop>
+          <label>제목</label>
+          <input
+            name='title'
+            value={todo.title}
+            onChange={onChangeHendler}
+            placeholder='제목을 입력하세요'
+            type='text'
+          />
+          <label>내용</label>
+          <input name='body' value={todo.body} onChange={onChangeHendler} placeholder='내용을 입력하세요' type='text' />
+        </InputGrop>
 
-      <button onClick={addCardHendler}>추가하기</button>
-    </Container>
+        <button onClick={addCardHendler}>추가하기</button>
+      </Container>
+      <div>
+        <div>
+          <h2>What to do</h2>
+          {todos.map((el) => {
+            if (!el.isDone) {
+              return <Card el={el} key={el.id} />;
+            } else {
+              return null;
+            }
+          })}
+        </div>
+        <div>
+          <h2>isDone</h2>
+          {todos.map((el) => {
+            if (el.isDone) {
+              return <Card el={el} key={el.id} />;
+            } else {
+              return null;
+            }
+          })}
+        </div>
+      </div>
+    </>
   );
 }
 
